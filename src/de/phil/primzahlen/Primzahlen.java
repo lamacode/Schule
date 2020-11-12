@@ -19,11 +19,11 @@ public class Main {
 
     while (p < limit) {
 
-      int sqrt = p * p;
+      int k = p * p;
 
-      while (sqrt < limit) {
-        gestrichen[sqrt] = true;
-        sqrt += p;
+      while (k < limit) {
+        gestrichen[k] = true;
+        k += p;
       }
 
       p++;
@@ -34,18 +34,11 @@ public class Main {
     for (int i = 0; i < limit; i++) {
       if (gestrichen[i]) continue;
 
-      if (count % 10 == 0) {
+      if (count % 10 == 0)
         System.out.println();
-        if (i < 10)
-          System.out.printf("  %d ", i);
-        else if (i >= 10 && i < 100)
-          System.out.printf(" %d ", i);
-      } else {
-        if (i < 10)
-          System.out.printf("  %d ", i);
-        else if (i >= 10 && i < 100)
-          System.out.printf(" %d ", i);
-      }
+      
+      int length = String.valueOf(limit).length();
+      System.out.printf("%" + (length + 1) + "d", i);
 
       count++;
     }
